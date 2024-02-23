@@ -2,6 +2,7 @@ import React from 'react';
 
 import { sample } from '../../utils';
 import { WORDS } from '../../data';
+import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
 import GuessForm from '../GuessForm';
 import GuessList from '../GuessList';
 
@@ -16,6 +17,7 @@ function Game() {
     <>
       <GuessList guesses={guesses} />
       <GuessForm
+        disableForm={guesses.length >= NUM_OF_GUESSES_ALLOWED}
         handleGuess={(newGuess) => {
           const nextGuesses = [...guesses, { id: crypto.randomUUID(), text: newGuess }];
           setGuesses(nextGuesses);
