@@ -15,7 +15,7 @@ function Game() {
   const [guesses, setGuesses] = React.useState([]);
   return (
     <>
-      <GuessList guesses={guesses} />
+      <GuessList guesses={guesses} answer={answer} />
       <GuessForm
         disableForm={guesses.length >= NUM_OF_GUESSES_ALLOWED}
         handleGuess={(newGuess) => {
